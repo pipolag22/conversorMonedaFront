@@ -39,12 +39,12 @@
             class="error"
             *ngIf="password.invalid && (password.touched || password.dirty)"
           >
-            La contraseña debe contener 8 carácteres minimo
+            La contraseña debe contener 8 carácteres mínimo
           </p>
         </div>
         <div id="login-button-container">
           <p *ngIf="errorLogin()" id="error-inicio">
-            Usuario o Contraseña invalido
+            Usuario o Contraseña inválidos
           </p>
           <button type="submit" [disabled]="loginForm.invalid">
             Iniciar Sesión

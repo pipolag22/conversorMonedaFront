@@ -17,7 +17,7 @@
             #name="ngModel"
           />
           <p class="error" *ngIf="name.invalid && (name.touched || name.dirty)">
-            Ingrese un nombre de 3 carácteres minimo
+            Ingrese un nombre de 3 caracteres mínimo
           </p>
         </div>
         <div class="input-container">
@@ -36,12 +36,12 @@
             class="error"
             *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)"
           >
-            Ingrese un apellido de 3 carácteres minimo
+            Ingrese un apellido de 3 caracteres mínimo
           </p>
         </div>
         <div class="input-container">
           <input
-            type="text"
+            type="email"
             autocomplete="off"
             name="email"
             id="email"
@@ -74,21 +74,39 @@
             class="error"
             *ngIf="password.invalid && (password.touched || password.dirty)"
           >
-            La contraseña debe contener 8 carácteres mínimo
+            La contraseña debe contener 8 caracteres mínimo
+          </p>
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            autocomplete="off"
+            name="confirmPassword"
+            id="confirmPassword"
+            placeholder="Confirmar Contraseña"
+            minlength="8"
+            required
+            [(ngModel)]="confirmPassword"
+          />
+          <p class="error" *ngIf="passwordMismatch()">
+            Las contraseñas no coinciden
           </p>
         </div>
         <div id="register-button-container">
           <p *ngIf="errorRegister()" id="error-registro">
             Error registrando usuario
           </p>
-          <button type="submit" [disabled]="registerForm.invalid">
+          <button
+            type="submit"
+            [disabled]="registerForm.invalid || passwordMismatch()"
+          >
             Registrarse
           </button>
         </div>
       </form>
-      <a [routerLink]="['/login']" routerLinkActive="router-link-active"
-        >Ya tengo una cuenta</a
-      >
+      <a [routerLink]="['/login']" routerLinkActive="router-link-active">
+        Ya tengo una cuenta
+      </a>
     </div>
   </div>
 </div>

@@ -15,30 +15,29 @@
 // Contenido Formulario
 .container-form {
   width: 100%;
-  max-width: 400px; // Limitar el ancho para un diseño más limpio
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #333; // Color de texto más oscuro para el fondo blanco
+  color: #333;
   font-size: 15px;
 
-  // Recuadro Azul
   .register-box {
     width: 100%;
     padding: 20px;
-    border: 2px solid variables.$button-color; // Recuadro azul alrededor del formulario
-    border-radius: 10px; // Esquinas redondeadas para una apariencia más amigable
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra para resaltar el recuadro
+    border: 2px solid variables.$button-color;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center; // Centrar el contenido horizontalmente
+    align-items: center;
   }
 
   h1 {
     margin-bottom: 30px;
     font-size: 2rem;
-    color: #000; // Negro para el título
-    text-align: center; // Alinear el texto al centro
+    color: #000;
+    text-align: center;
   }
 
   form {
@@ -54,19 +53,19 @@
         width: 100%;
         padding: 10px;
         font-size: 1.1rem;
-        border: none;
+        border: 1px solid variables.$inputs;
         outline: none;
-        background: none;
-        border-bottom: 1px solid variables.$inputs; // Borde inferior sutil
-        color: #333; // Texto oscuro para el input
+        background: #fff; // Fondo blanco
+        color: #333;
+        border-radius: 5px; // Bordes redondeados
         transition: border-color 0.3s ease;
 
         &:focus {
-          border-bottom: 1px solid variables.$button-color;
+          border: 1px solid variables.$button-color;
         }
 
         &::placeholder {
-          color: variables.$inputs; // Placeholder en un tono gris
+          color: variables.$inputs;
         }
       }
     }
@@ -114,14 +113,14 @@
   }
 
   a {
-    color: variables.$button-color; // Link con color consistente con el botón
+    color: variables.$button-color;
     margin-top: 20px;
     font-size: 1rem;
     text-decoration: none;
     transition: color 0.3s ease;
 
     &:hover {
-      color: variables.$button-color-active; // Cambia de color al hacer hover
+      color: variables.$button-color-active;
     }
   }
 }
