@@ -1,0 +1,94 @@
+<div class="container">
+  <h1 id="titulo-principal">Conversor de Monedas</h1>
+  <div class="container-form">
+    <div class="register-box">
+      <h1>Registro de Usuario</h1>
+      <form #registerForm="ngForm" (ngSubmit)="register()">
+        <div class="input-container">
+          <input
+            type="text"
+            autocomplete="off"
+            name="name"
+            id="name"
+            placeholder="Nombre"
+            minlength="3"
+            required
+            [(ngModel)]="registerData.nombre"
+            #name="ngModel"
+          />
+          <p class="error" *ngIf="name.invalid && (name.touched || name.dirty)">
+            Ingrese un nombre de 3 carácteres minimo
+          </p>
+        </div>
+        <div class="input-container">
+          <input
+            type="text"
+            autocomplete="off"
+            name="lastname"
+            id="lastname"
+            placeholder="Apellido"
+            minlength="3"
+            required
+            [(ngModel)]="registerData.apellido"
+            #lastname="ngModel"
+          />
+          <p
+            class="error"
+            *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)"
+          >
+            Ingrese un apellido de 3 carácteres minimo
+          </p>
+        </div>
+        <div class="input-container">
+          <input
+            type="text"
+            autocomplete="off"
+            name="email"
+            id="email"
+            placeholder="Email"
+            minlength="12"
+            required
+            [(ngModel)]="registerData.email"
+            #email="ngModel"
+          />
+          <p
+            class="error"
+            *ngIf="email.invalid && (email.touched || email.dirty)"
+          >
+            Ingrese un email válido
+          </p>
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            autocomplete="off"
+            name="password"
+            id="password"
+            placeholder="Contraseña"
+            minlength="8"
+            required
+            [(ngModel)]="registerData.contrasenia"
+            #password="ngModel"
+          />
+          <p
+            class="error"
+            *ngIf="password.invalid && (password.touched || password.dirty)"
+          >
+            La contraseña debe contener 8 carácteres mínimo
+          </p>
+        </div>
+        <div id="register-button-container">
+          <p *ngIf="errorRegister()" id="error-registro">
+            Error registrando usuario
+          </p>
+          <button type="submit" [disabled]="registerForm.invalid">
+            Registrarse
+          </button>
+        </div>
+      </form>
+      <a [routerLink]="['/login']" routerLinkActive="router-link-active"
+        >Ya tengo una cuenta</a
+      >
+    </div>
+  </div>
+</div>

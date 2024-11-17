@@ -1,0 +1,39 @@
+@use "./assets/styles/variables.scss";
+
+@font-face {
+  font-family: InterFont;
+  src: url(./assets/fonts/static/Inter-ExtraLight.ttf);
+  font-weight: lighter;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: InterFont;
+  background: variables.$background-image no-repeat center center fixed;
+  background-size: cover;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

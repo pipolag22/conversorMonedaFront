@@ -1,0 +1,127 @@
+@use "./../../../assets/styles/variables.scss";
+
+// General Container
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+// Contenido General
+.container-general {
+  width: 100%;
+  max-width: 400px; // Limitar el ancho para un diseño más limpio
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333; // Color de texto más oscuro para el fondo blanco
+  font-size: 15px;
+
+  // Recuadro Azul
+  .login-box {
+    width: 100%;
+    padding: 20px;
+    border: 2px solid variables.$button-color; // Recuadro azul alrededor del formulario
+    border-radius: 10px; // Esquinas redondeadas para una apariencia más amigable
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra para resaltar el recuadro
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Centrar el contenido horizontalmente
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #000; // Negro para el título
+    text-align: center; // Alinear el texto al centro
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    .input-container {
+      width: 100%;
+
+      input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.1rem;
+        border: none;
+        outline: none;
+        background: none;
+        border-bottom: 1px solid variables.$inputs; // Borde inferior sutil
+        color: #333; // Texto oscuro para el input
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          border-bottom: 1px solid variables.$button-color;
+        }
+
+        &::placeholder {
+          color: variables.$inputs; // Placeholder en un tono gris
+        }
+      }
+    }
+
+    p.error {
+      color: variables.$error-color;
+      font-size: 0.9rem;
+      margin: 0;
+      text-align: center;
+    }
+
+    #error-inicio {
+      font-size: 0.9rem;
+      color: variables.$error-color;
+      text-align: center;
+    }
+
+    #login-button-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      button {
+        height: 45px;
+        width: 100%;
+        font-size: 1.1rem;
+        color: #ffffff;
+        background-color: variables.$button-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: variables.$button-color-active;
+        }
+
+        &[disabled] {
+          filter: grayscale(80%);
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  a {
+    color: variables.$button-color;
+    margin-top: 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: variables.$button-color-active;
+    }
+  }
+}

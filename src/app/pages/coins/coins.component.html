@@ -1,0 +1,144 @@
+<div class="container">
+  <h1 class="titulo-principal">Monedas</h1>
+  <div class="container-general">
+    <div class="categorias-superiores">
+      <!-- Monedas por defecto -->
+      <div class="categoria">
+        <div class="titulo">
+          <h1>Por Defecto</h1>
+        </div>
+        <table class="monedas-table">
+          <thead>
+            <tr>
+              <th>Leyenda</th>
+              <th>Simbolo</th>
+              <th>IC</th>
+              <th>Favorita</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let monedadefault of MonedasDefault">
+              <td>{{ monedadefault.leyenda }}</td>
+              <td>{{ monedadefault.simbolo }}</td>
+              <td>{{ monedadefault.ic }}</td>
+              <td>
+                <span
+                  class="estrella"
+                  [class.favorita]="isFavorite(monedadefault)"
+                  (click)="toggleFavorite(monedadefault)"
+                >
+                  &#9733;
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Monedas favoritas -->
+      <div class="categoria">
+        <div class="titulo">
+          <h1>Favoritas</h1>
+        </div>
+        <table class="monedas-table">
+          <thead>
+            <tr>
+              <th>Leyenda</th>
+              <th>Simbolo</th>
+              <th>IC</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let monedafavorita of MonedasFavoritas">
+              <td>{{ monedafavorita.leyenda }}</td>
+              <td>{{ monedafavorita.simbolo }}</td>
+              <td>{{ monedafavorita.ic }}</td>
+              <td>
+                <span
+                  class="icono remover"
+                  (click)="removeFavorite(monedafavorita)"
+                  title="Remover"
+                >
+                  ❌
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Monedas de Usuario -->
+    <div
+      class="categoria"
+      *ngIf="MostrarSub === 'Pro' || MostrarSub === 'Trial'"
+    >
+      <div class="titulo">
+        <h1>Mis Monedas</h1>
+        <button (click)="openCreateDialog()">Crear +</button>
+      </div>
+
+      <table class="monedas-table">
+        <thead>
+          <tr>
+            <th>Leyenda</th>
+            <th>Simbolo</th>
+            <th>IC</th>
+            <th>Favorita</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let monedausuario of MonedasUsuario">
+            <td>{{ monedausuario.leyenda }}</td>
+            <td>{{ monedausuario.simbolo }}</td>
+            <td>{{ monedausuario.ic }}</td>
+            <td>
+              <span
+                class="estrella"
+                [class.favorita]="isFavorite(monedausuario)"
+                (click)="toggleFavorite(monedausuario)"
+              >
+                &#9733;
+              </span>
+            </td>
+            <td>
+              <span
+                class="icono"
+                (click)="openEditDialog(monedausuario)"
+                title="Editar"
+              >
+                ✏️
+              </span>
+              <span
+                class="icono remover"
+                (click)="deleteMonedaUsuario(monedausuario)"
+                title="Remover"
+              >
+                ❌
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="mensajeMonedas" *ngIf="MonedasUsuario.length === 0">
+        ¡Crea tus propias monedas!
+      </p>
+    </div>
+    <div class="volver-container">
+      <button id="volver" [routerLink]="['/home']">Volver</button>
+    </div>
+  </div>
+
+  <!-- Diálogo de Edición/Creación -->
+  <dialog #dialogCreateCoin>
+    <app-create-coin
+      *ngIf="selectedMoneda"
+      [moneda]="selectedMoneda"
+      [isEditMode]="isEditMode"
+      (cerrar)="closeDialog()"
+      (monedaCreada)="actualizarEstado()"
+    ></app-create-coin>
+  </dialog>
+</div>

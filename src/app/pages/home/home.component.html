@@ -1,0 +1,161 @@
+<div class="container" (click)="closeDropdowns()">
+  <header>
+    <button id="logout" (click)="Logout()">Cerrar Sesión</button>
+  </header>
+
+  <div class="container-general">
+    <!-- Título Principal -->
+    <h1 id="titulo-principal">Conversor de Monedas</h1>
+
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+      <!-- Botón Ver Monedas  -->
+      <div class="ver-monedas">
+        <button
+          id="verMonedas"
+          [routerLink]="['/coins']"
+          routerLinkActive="router-link-active"
+        >
+          Ver Monedas
+        </button>
+      </div>
+
+      <!-- Conversor de Monedas -->
+      <div class="conversion-container">
+        <div class="currency-converter">
+          <div class="convert-section">
+            <label for="moneda1">Cantidad</label>
+            <div class="currency-input">
+              <div
+                class="dropdown"
+                [class.open]="isDropdownOpen1"
+                (click)="toggleDropdown1($event)"
+              >
+                <div class="dropdown-toggle">
+                  {{ selectedOption1 }}
+                  <span class="arrow" [class.open]="isDropdownOpen1">
+                    &#9660;
+                  </span>
+                </div>
+                <ul class="dropdown-menu" *ngIf="isDropdownOpen1">
+                  <p
+                    *ngIf="MonedasFavoritas.length !== 0"
+                    class="titulo-moneda"
+                  >
+                    Favoritas
+                  </p>
+                  <li
+                    *ngFor="let monedafavorita of MonedasFavoritas"
+                    (click)="selectOption1(monedafavorita, $event)"
+                  >
+                    {{ monedafavorita.simbolo }}
+                  </li>
+                  <p *ngIf="MonedasUsuario.length !== 0" class="titulo-moneda">
+                    Mis Monedas
+                  </p>
+                  <li
+                    *ngFor="let monedausuario of MonedasUsuario"
+                    (click)="selectOption1(monedausuario, $event)"
+                  >
+                    {{ monedausuario.simbolo }}
+                  </li>
+                  <p class="titulo-moneda">Monedas Default</p>
+                  <li
+                    *ngFor="let monedadefault of MonedasDefault"
+                    (click)="selectOption1(monedadefault, $event)"
+                  >
+                    {{ monedadefault.simbolo }}
+                  </li>
+                </ul>
+              </div>
+              <input
+                type="number"
+                id="moneda1"
+                autocomplete="off"
+                [value]="inputValue"
+                (input)="updateValue($event)"
+              />
+            </div>
+          </div>
+
+          <div class="convert-section">
+            <label for="moneda2">Convertir</label>
+            <div class="currency-input">
+              <div
+                class="dropdown"
+                [class.open]="isDropdownOpen2"
+                (click)="toggleDropdown2($event)"
+              >
+                <div class="dropdown-toggle">
+                  {{ selectedOption2 }}
+                  <span class="arrow" [class.open]="isDropdownOpen2">
+                    &#9660;
+                  </span>
+                </div>
+                <ul class="dropdown-menu" *ngIf="isDropdownOpen2">
+                  <p
+                    *ngIf="MonedasFavoritas.length !== 0"
+                    class="titulo-moneda"
+                  >
+                    Favoritas
+                  </p>
+                  <li
+                    *ngFor="let monedafavorita of MonedasFavoritas"
+                    (click)="selectOption2(monedafavorita, $event)"
+                  >
+                    {{ monedafavorita.simbolo }}
+                  </li>
+                  <p *ngIf="MonedasUsuario.length !== 0" class="titulo-moneda">
+                    Mis Monedas
+                  </p>
+                  <li
+                    *ngFor="let monedausuario of MonedasUsuario"
+                    (click)="selectOption2(monedausuario, $event)"
+                  >
+                    {{ monedausuario.simbolo }}
+                  </li>
+                  <p class="titulo-moneda">Monedas Default</p>
+                  <li
+                    *ngFor="let monedadefault of MonedasDefault"
+                    (click)="selectOption2(monedadefault, $event)"
+                  >
+                    {{ monedadefault.simbolo }}
+                  </li>
+                </ul>
+              </div>
+              <input type="number" id="moneda2" [value]="resultado" disabled />
+            </div>
+          </div>
+
+          <button
+            id="convertir"
+            [disabled]="ICfromConvert === 0 || ICtoConvert === 0"
+            (click)="Convertir(inputValue, ICfromConvert, ICtoConvert)"
+          >
+            Convertir
+          </button>
+        </div>
+      </div>
+
+      <!-- Sección de Suscripción -->
+      <div class="subs">
+        <button
+          id="button-sub"
+          [routerLink]="['/subs']"
+          routerLinkActive="router-link-active"
+        >
+          Suscripción {{ MostrarSub }}
+        </button>
+        <p>Conversiones disponibles: {{ MostrarConversiones }}</p>
+      </div>
+    </div>
+
+    <!-- Resultado -->
+    <div class="resultado">
+      <p id="conversion-resultado">
+        {{ inputValue }} {{ selectedOption1 }} equivale a {{ resultado }}
+        {{ selectedOption2 }}
+      </p>
+    </div>
+  </div>
+</div>

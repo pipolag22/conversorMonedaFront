@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="container-general">
+    <!-- Mensaje al usuario -->
+    <div id="mensaje">
+      <h1>Ha finalizado tu prueba gratis!</h1>
+      <h2>Suscríbete para continuar</h2>
+      <span>&#9660;</span>
+    </div>
+
+    <!-- Botones de suscripción -->
+    <div class="subs-container">
+      <button class="sub" id="pro" (click)="ChangeSub(0)">
+        <h1>Suscripción Pro</h1>
+        <p>- Sin límites de conversión</p>
+        <span class="tooltip"
+          >Detalles de la Suscripción Pro: Conversión ilimitada</span
+        >
+      </button>
+
+      <button class="sub" id="trial" (click)="ChangeSub(1)">
+        <h1>Suscripción Trial</h1>
+        <p>- 100 Conversiones</p>
+        <span class="tooltip"
+          >Detalles de la Suscripción Trial: 100 conversiones disponibles</span
+        >
+      </button>
+    </div>
+  </div>
+</div>

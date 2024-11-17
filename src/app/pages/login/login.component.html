@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="container-general">
+    <h1 id="titulo-principal">Conversor de Monedas</h1>
+    <div class="login-box">
+      <h1>Inicio de Sesión</h1>
+      <form #loginForm="ngForm" (ngSubmit)="login()">
+        <div class="input-container">
+          <input
+            type="email"
+            autocomplete="off"
+            name="email"
+            id="email"
+            placeholder="Email"
+            minlength="12"
+            required
+            [(ngModel)]="loginData.email"
+            #email="ngModel"
+          />
+          <p
+            class="error"
+            *ngIf="email.invalid && (email.touched || email.dirty)"
+          >
+            Ingrese un email válido
+          </p>
+        </div>
+        <div class="input-container">
+          <input
+            type="password"
+            autocomplete="off"
+            name="password"
+            id="password"
+            placeholder="Contraseña"
+            minlength="8"
+            required
+            [(ngModel)]="loginData.contrasenia"
+            #password="ngModel"
+          />
+          <p
+            class="error"
+            *ngIf="password.invalid && (password.touched || password.dirty)"
+          >
+            La contraseña debe contener 8 carácteres minimo
+          </p>
+        </div>
+        <div id="login-button-container">
+          <p *ngIf="errorLogin()" id="error-inicio">
+            Usuario o Contraseña invalido
+          </p>
+          <button type="submit" [disabled]="loginForm.invalid">
+            Iniciar Sesión
+          </button>
+        </div>
+      </form>
+      <a [routerLink]="['/register']" routerLinkActive="router-link-active">
+        Registrarse
+      </a>
+    </div>
+  </div>
+</div>

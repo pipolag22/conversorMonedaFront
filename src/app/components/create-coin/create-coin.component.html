@@ -1,0 +1,42 @@
+<form #form="ngForm" (ngSubmit)="onSubmit()" class="crear-moneda-form">
+  <h1>{{ isEditMode ? "Editar Moneda" : "Crear Moneda" }}</h1>
+  <div class="formulario">
+    <input
+      type="text"
+      autocomplete="off"
+      placeholder="Leyenda"
+      [(ngModel)]="moneda.leyenda"
+      name="leyenda"
+    />
+    <input
+      type="text"
+      autocomplete="off"
+      placeholder="Símbolo"
+      [(ngModel)]="moneda.simbolo"
+      name="simbolo"
+    />
+    <input
+      type="number"
+      autocomplete="off"
+      placeholder="Índice de Convertibilidad"
+      [(ngModel)]="moneda.ic"
+      name="ic"
+    />
+  </div>
+  <div class="options">
+    <button
+      id="crear"
+      type="submit"
+      [disabled]="
+        moneda.leyenda.length == 0 ||
+        moneda.simbolo.length == 0 ||
+        moneda.ic <= 0
+      "
+    >
+      {{ isEditMode ? "Guardar" : "Crear +" }}
+    </button>
+    <button id="cancelar" type="button" (click)="cerrar.emit()">
+      Cancelar
+    </button>
+  </div>
+</form>

@@ -1,0 +1,222 @@
+@use "./../../../assets/styles/variables.scss";
+
+// General Container
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 20px;
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 20px;
+
+    #logout {
+      padding: 8px 15px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #c0392b;
+      }
+    }
+  }
+
+  #titulo-principal {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+  }
+
+  .container-general {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    padding: 20px;
+
+    .main-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 30px;
+
+      .ver-monedas {
+        #verMonedas {
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+
+      .subs {
+        text-align: right;
+
+        #button-sub {
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+
+        p {
+          margin-top: 10px;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .conversion-container {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+
+      .currency-converter {
+        .convert-section {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 15px;
+
+          label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: black;
+          }
+
+          .currency-input {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            input {
+              flex: 1;
+              padding: 10px;
+              font-size: 16px;
+              margin-left: 10px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+            }
+
+            .dropdown {
+              position: relative;
+              cursor: pointer;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              padding: 10px;
+              background-color: #f9f9f9;
+
+              .dropdown-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .arrow {
+                  margin-left: 10px;
+                  transition: transform 0.3s;
+                }
+              }
+
+              .open .arrow {
+                transform: rotate(180deg);
+              }
+
+              .dropdown-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                list-style: none;
+                padding: 0;
+                margin: 5px 0 0 0;
+                z-index: 10;
+
+                li {
+                  padding: 10px;
+                  cursor: pointer;
+                  transition: background-color 0.2s;
+
+                  &:hover {
+                    background-color: #f0f0f0;
+                  }
+                }
+
+                .titulo-moneda {
+                  font-weight: bold;
+                  padding: 5px 10px;
+                  background-color: #f1f1f1;
+                }
+              }
+            }
+          }
+        }
+
+        #convertir {
+          width: 100%;
+          padding: 10px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+
+          &:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+
+    .resultado {
+      margin-top: 20px;
+      color: black;
+      text-align: center;
+
+      #conversion-resultado {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0;
+        display: inline;
+      }
+    }
+  }
+}

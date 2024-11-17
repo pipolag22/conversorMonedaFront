@@ -1,0 +1,53 @@
+@use "./../../../assets/styles/variables.scss";
+
+.container {
+  width: 100%;
+  height: 100vh; // Hacer que ocupe toda la pantalla
+  display: flex;
+  justify-content: center; // Centrar el contenido horizontalmente
+  align-items: center; // Centrar el contenido verticalmente
+  background-color: white; // Fondo blanco
+  padding: 20px;
+}
+
+#contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px; // Espacio entre los elementos
+  padding: 40px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); // Sombra suave para que destaque
+  border-radius: 15px; // Bordes redondeados
+  background-color: #f9f9f9; // Fondo gris muy claro
+}
+
+h1 {
+  font-size: 3rem; // Tamaño más grande
+  color: #333; // Color oscuro para el texto
+  margin: 0;
+}
+
+h2 {
+  font-size: 2rem; // Tamaño adecuado para el subtítulo
+  color: #666; // Color gris para contrastar
+  margin: 0;
+}
+
+a {
+  font-size: 1.2rem;
+  color: variables.$button-color; // Usar el color de botón definido en variables
+  text-decoration: none; // Eliminar subrayado
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 2px solid variables.$button-color;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: variables.$button-color; // Cambiar fondo al color de botón en hover
+    color: white; // Cambiar el color del texto a blanco en hover
+  }
+}

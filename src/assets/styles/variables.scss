@@ -1,0 +1,31 @@
+// PALETA DE COLORES
+
+// Imagen de fondo
+$background-image: url("./assets/img/fondo.png");
+
+// Colores de header y footer
+$head-foot-dark: #324e67;
+$head-foot-light: #6e95b9;
+
+// Detalles
+$input-coin-color: linear-gradient(
+  90deg,
+  rgb(47, 48, 49) 2%,
+  rgb(70, 72, 75) 46%,
+  rgb(57, 60, 64) 88%
+);
+
+$button-color: #475bc5;
+$button-color-active: #33428a;
+$delete-button-color: #9c2020;
+$error-color: #cc4b4b;
+$subs-color: linear-gradient(
+  90deg,
+  rgb(22, 36, 103) 3%,
+  rgb(59, 70, 131) 28%,
+  rgba(28, 43, 121, 1) 55%,
+  rgb(13, 25, 70) 84%
+);
+
+$star-color: #daf247;
+$inputs: #9b9b9b;

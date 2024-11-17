@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="titulo">Subscripciones</h1>
+  <div class="container-general">
+    <button class="sub" id="pro" (click)="ButtonClick('Pro', 0)">
+      <h1>Suscripción Pro</h1>
+      <p>- Sin límites de conversión</p>
+      <span class="tooltip"
+        >Detalles de la Suscripción Pro: Conversión ilimitada</span
+      >
+    </button>
+    <button class="sub" id="trial" (click)="ButtonClick('Trial', 1)">
+      <h1>Suscripción Trial</h1>
+      <p>- 100 Conversiones</p>
+      <span class="tooltip"
+        >Detalles de la Suscripción Trial: 100 conversiones disponibles</span
+      >
+    </button>
+  </div>
+  <button class="cancelar" (click)="Cancelar()">Cancelar</button>
+</div>
