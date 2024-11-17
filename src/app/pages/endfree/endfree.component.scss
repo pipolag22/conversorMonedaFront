@@ -1,15 +1,5 @@
 @use "./../../../assets/styles/variables.scss";
 
-@font-face {
-  font-family: ExtraBold;
-  src: url(./../../../assets/fonts/static/Inter-ExtraBold.ttf);
-}
-
-@font-face {
-  font-family: InterLight;
-  src: url(./../../../assets/fonts/static/Inter-ExtraLight.ttf);
-}
-
 .container {
   width: 100%;
   min-height: 100vh;
@@ -17,122 +7,109 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: #ffffff;
+  background-color: #f9f9f9;
 
-  .container-general {
-    width: 100%;
-    max-width: 800px;
+  #mensaje {
+    text-align: center;
+    margin-bottom: 20px;
+
+    h1 {
+      font-size: 2rem;
+      color: #444;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #666;
+    }
+
+    span {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 2rem;
+      color: #888;
+    }
+  }
+
+  .subs-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-weight: 900;
+    justify-content: center;
     gap: 20px;
 
-    #mensaje {
-      text-align: center;
-      color: black;
-      font-family: InterLight;
-      margin-bottom: 40px;
+    .sub {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(90deg, #1e90ff, #00bfff);
+      border: none;
+      border-radius: 15px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s, opacity 0.3s;
+
+      &:hover {
+        opacity: 0.9;
+        transform: scale(1.05);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
 
       h1 {
-        margin: 0;
-        font-size: 2.5rem;
-        font-weight: normal;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        font-weight: bold;
       }
 
-      h2 {
-        margin: 10px 0 0 0;
-        font-size: 1.5rem;
-        font-weight: normal;
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
       }
 
-      span {
-        font-size: 2rem;
-        margin-top: 10px;
+      .tooltip {
+        visibility: hidden;
+        width: 90%;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 10px;
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #333 transparent transparent transparent;
+        }
+      }
+
+      &:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
       }
     }
 
-    .subs-container {
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      gap: 20px;
+    #pro {
+      background: linear-gradient(90deg, #1e90ff, #00bfff);
+    }
 
-      .sub {
-        position: relative;
-        width: 45%;
-        height: 200px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background: variables.$subs-color;
-        border: none;
-        border-radius: 20px;
-        color: white;
-        text-align: start;
-        cursor: pointer;
-        transition: transform 0.3s, opacity 0.3s;
-
-        &:hover {
-          opacity: 0.9;
-        }
-
-        &:active {
-          transform: scale(0.95);
-        }
-
-        h1 {
-          margin: 25px 0 0 25px;
-          font-size: 1.8rem;
-          font-family: ExtraBold;
-        }
-
-        p {
-          margin-left: 30px;
-          font-size: 1.2rem;
-        }
-
-        .tooltip {
-          visibility: hidden;
-          width: 100%;
-          background-color: #555;
-          color: #fff;
-          text-align: center;
-          border-radius: 5px;
-          padding: 10px;
-          position: absolute;
-          bottom: 110%;
-          left: 50%;
-          transform: translateX(-50%);
-          opacity: 0;
-          transition: opacity 0.3s;
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #555 transparent transparent transparent;
-          }
-        }
-
-        &:hover .tooltip {
-          visibility: visible;
-          opacity: 1;
-        }
-      }
-
-      #pro {
-        background: linear-gradient(90deg, #1e90ff, #00bfff);
-      }
-
-      #trial {
-        background: linear-gradient(90deg, #32cd32, #228b22);
-      }
+    #trial {
+      background: linear-gradient(90deg, #32cd32, #228b22);
     }
   }
 }

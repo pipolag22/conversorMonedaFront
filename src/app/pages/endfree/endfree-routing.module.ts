@@ -4,13 +4,13 @@ import { EndfreeComponent } from './endfree.component';
 
 const routes: Routes = [
   {
-    path: "",
-    component : EndfreeComponent
-  }
+    path: '',
+    component: EndfreeComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class EndfreeRoutingModule { }
+export class EndfreeRoutingModule {}
